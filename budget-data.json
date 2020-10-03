@@ -17,19 +17,19 @@
             "budget": 100
         },
         {
-            "title": "Mobile Bill",
+            "title": "Mobile",
             "budget": 27
         },
         {
-            "title": "Internet Bill",
+            "title": "Internet",
             "budget": 10
         },
         {
-            "title": "University Tuition fees",
+            "title": "University",
             "budget": 150
         },
         {
-            "title": "Netflix & other entertainment",
+            "title": "Netflix",
             "budget": 50
         }
     ]
