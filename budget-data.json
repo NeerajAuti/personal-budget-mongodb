@@ -1,0 +1,36 @@
+{
+    "myBudget": [
+        {
+            "title": "Eat out",
+            "budget": 25
+        },
+        {
+            "title": "Utilities",
+            "budget": 45
+        },
+        {
+            "title": "Rent",
+            "budget": 110
+        },
+        {
+            "title": "Grocery",
+            "budget": 100
+        },
+        {
+            "title": "Mobile Bill",
+            "budget": 27
+        },
+        {
+            "title": "Internet Bill",
+            "budget": 10
+        },
+        {
+            "title": "University Tuition fees",
+            "budget": 150
+        },
+        {
+            "title": "Netflix & other entertainment",
+            "budget": 50
+        }
+    ]
+}
