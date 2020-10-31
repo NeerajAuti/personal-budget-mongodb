@@ -139,26 +139,14 @@
         datasets: [
           {
             data: [],
-            backgroundColor: [
-              "#ffcd56",
-              "#ff6384",
-              "#36a2eb",
-              "#fd6b19",
-              "#99ff33",
-              "#ff9900",
-              "#00ffcc",
-              "#99ff99",
-              "#cc66ff",
-              "#cc6699",
-              "#3366cc",
-              "#660066",
-            ],
+            backgroundColor: [],
           },
         ],
         labels: [],
       };
       
       var data = {}
+      var color_D3JS=[]
 
       function createChart() {
         var ctx = document.getElementById("myChart").getContext("2d");
@@ -170,18 +158,20 @@
 
       function getBudget() {
         axios.get("http://localhost:3000/budget").then(function (res) {
-          for (var i = 0; i < res.data.myBudget.length; i++) {
-            dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
-            dataSource.labels[i] = res.data.myBudget[i].title;
-            data[res.data.myBudget[i].title] = res.data.myBudget[i].budget;
+          for (var i = 0; i < res.data.length; i++) {
+            dataSource.datasets[0].data[i] = res.data[i].budget;
+            dataSource.labels[i] = res.data[i].title;
+            dataSource.datasets[0].backgroundColor[i] = res.data[i].color;
+            data[res.data[i].title] = res.data[i].budget;
+            color_D3JS.push(res.data[i].color);
           }
           createChart();
-          create_d3jsChart(data);
+          create_d3jsChart(data,color_D3JS);
         });
       }
       getBudget();
 
-      function create_d3jsChart(data)
+      function create_d3jsChart(data, colors)
       {
         
         // set the dimensions and margins of the graph
@@ -206,7 +196,7 @@
         // set the color scale
         var color = d3.scaleOrdinal()
           .domain(["Eat out", "Grocery", "Internet Bill", "Mobile Bill", "Netflix & other entertainment", "Rent", "University Tuition fees", "Utilities"])
-          .range(d3.schemeDark2);
+          .range(colors);
         
         // Compute the position of each group on the pie:
         var pie = d3.pie()
